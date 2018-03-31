@@ -16,9 +16,8 @@ $.ajax({
   		url: url + countryName,
   		method: 'GET',
 		success: showCountriesList,
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			notFound();
-		}
+		error: notFound
+		
 		  
 	  });
 	  function notFound () {
