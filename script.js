@@ -2,33 +2,33 @@ var url = 'https://restcountries.eu/rest/v1/name/';
 var countriesList = $('#countries');
 
 $('#search').click(searchCountries);
-$('#country-name').keypress(function(e) {
-	if(e.which == 13) {
+$('#country-name').keypress(function (e) {
+	if (e.which == 13) {
 		searchCountries();
 	}
 });
 
 
 function searchCountries() {
- 	var countryName = $('#country-name').val();
+	var countryName = $('#country-name').val();
 
-$.ajax({
-  		url: url + countryName,
-  		method: 'GET',
+	$.ajax({
+		url: url + countryName,
+		method: 'GET',
 		success: showCountriesList,
 		error: notFound
-		
-		  
-	  });
-	  function notFound () {
-		  alert("Country not found, try again");
-	  }
+
+
+	});
+	function notFound() {
+		alert("Country not found, try again");
+	}
 }
 
 function showCountriesList(resp) {
 	countriesList.empty();
 	$('#country-name').val('');
-	resp.forEach(function(item) {
+	resp.forEach(function (item) {
 		countriesList.append(
 			`<div class="wrapper">
 				<div class="header">
@@ -63,7 +63,7 @@ function showCountriesList(resp) {
 				</div>
 			</div>`
 		);
-		});
+	});
 }
 
 
